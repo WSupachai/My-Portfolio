@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
-import { updateSkill } from '@/src/app/admin/actions' // import action update ที่เราเขียนเมื่อกี้
+import { updateSkill } from '@/src/app/admin/actions' // import action update 
+import {  Pencil } from 'lucide-react'
 
 // 1. รับ props "skill" เข้ามา (ใส่ type any ไปก่อนเพื่อความง่าย หรือใส่ type จริงถ้ามี)
 export default function EditSkillModal({ skill }: { skill: any }) {
@@ -20,7 +21,7 @@ export default function EditSkillModal({ skill }: { skill: any }) {
                 onClick={() => setIsOpen(true)}
                 className="mr-1 text-yellow-500 hover:text-yellow-700 hover:bg-yellow-50 px-4 py-2 rounded-lg text-sm font-medium transition border border-yellow-200 hover:border-yellow-300 flex items-center gap-1 "
             >
-                Edit
+                < Pencil size={18} />
             </button>
 
             {/* ตัว Modal */}

@@ -1,7 +1,7 @@
 import { prisma } from '@/src/lib/prisma'
 import { deleteProject } from '@/src/app/admin/actions' // server action ที่เราเขียนไว้
 import Image from 'next/image'
-import { Plus, Github, ExternalLink, Trash2 } from 'lucide-react'
+import { Github, ExternalLink, Trash2 } from 'lucide-react'
 import AddProject from '@/src/components/admin/AddProject'
 import  EditProject  from '@/src/components/admin/EditProject'
 

@@ -1,9 +1,10 @@
 import React from "react";
+import SkillsNav from '@/src/components/sections/SkillsNavigation'
 
 const HeroSection = () => {
-  return (   
+  return (
     <section>
-
+      <SkillsNav />
     </section>
   );
 };
