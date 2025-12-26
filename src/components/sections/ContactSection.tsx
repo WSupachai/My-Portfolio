@@ -1,88 +1,168 @@
-import Image from "next/image";
-import React from "react";
+'use client'
+import { Phone, Mail, MapPin } from 'lucide-react';
+import React, { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 
-const HeroSection = () => {
+export default function ContactSection() {
+  const formRef = useRef<HTMLFormElement>(null); // ใช้สำหรับอ้างอิง Form
+  const [isLoading, setIsLoading] = useState(false); // สถานะกำลังส่ง
+  const [statusMessage, setStatusMessage] = useState(""); // ข้อความแจ้งผล
+  const startTime = useRef(Date.now());
+
+  const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    //เช็คความปลอดภัย: ถ้าหาฟอร์มไม่เจอ ให้หยุดทำงาน (กัน Error)
+    if (!formRef.current) return
+    setIsLoading(true);
+    setStatusMessage("");
+
+    //honeypot
+    if (formRef.current.company.value !== "") {
+      return;
+    }
+
+    // แทนค่า YOUR_... ด้วยค่าจริงจาก EmailJS Dashboard
+    const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "YOUR_SERVICE_ID";
+    const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "YOUR_TEMPLATE_ID";
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "YOUR_PUBLIC_KEY";
+
+    const timeSpent = Date.now() - startTime.current;
+    // ถ้ากรอกเร็วเกิน 3 วิ
+    if (timeSpent < 3000) {
+      return;
+    }
+
+    try {
+      const result = await emailjs.sendForm(
+        serviceID,
+        templateID,
+        formRef.current,
+        { publicKey }
+      );
+      setIsLoading(false);
+      setStatusMessage("success");
+      formRef.current.reset();
+      alert("Thank you! Your message has been sent. I will get back to you shortly.");
+    } catch (error: any) { // ใช้ any ชั่วคราวเพื่อให้ดึง error.text ได้ง่าย
+      setIsLoading(false);
+      setStatusMessage("error");
+      alert("Failed to send message. Please try again.");
+    }
+  }
+
   return (
-    <section className="relative w-full min-h-screen bg-white overflow-hidden flex items-center">
-      
-      {/* 1. แถบสีฟ้าด้านขวา (Background Right) */}
-      <div className="absolute top-0 right-0 w-[35%] h-full bg-[#B6CEFC] z-0 hidden md:block" />
+    <section className="bg-[#1c1c22] min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="bg-[#27272c] p-8 rounded-xl shadow-lg order-2 md:order-1">
+          <h3 className="text-4xl font-bold text-emerald-400 mb-6">Let's work together</h3>
+          <p className="text-gray-400 mb-8 text-sm">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt sit illo esse commodi.
+          </p>
 
-      {/* 2. ปุ่มเมนู Hamburger (Top Left) */}
-      <div className="absolute top-8 left-8 md:top-12 md:left-24 z-20 cursor-pointer">
-        <div className="w-8 h-1 bg-black mb-1.5 rounded-full"></div>
-        <div className="w-6 h-1 bg-black mb-1.5 rounded-full"></div>
-        <div className="w-4 h-1 bg-black rounded-full"></div>
-      </div>
-
-      {/* 3. Container หลักแบ่ง 2 ฝั่ง */}
-      <div className="container mx-auto px-6 md:px-24 relative z-10 w-full h-full">
-        <div className="flex flex-col md:flex-row h-full items-center">
-          
-          {/* --- ฝั่งซ้าย: ข้อความ (Left Content) --- */}
-          <div className="w-full md:w-1/2 pt-20 md:pt-0 space-y-10">
-            
-            {/* หัวข้อหลัก */}
-            <div className="text-center md:text-left">
-              <h1 className="text-5xl md:text-7xl font-serif text-[#1a2b3c] mb-6">
-                Web Developer
-              </h1>
-              
-              {/* ปุ่ม Hire Me */}
-              <button className="px-10 py-3 border border-black rounded-tr-[20px] rounded-bl-[20px] rounded-tl-md rounded-br-md text-lg font-medium hover:bg-black hover:text-white transition-all duration-300">
-                Hire Me
-              </button>
-            </div>
-
-            {/* ส่วนสถิติ (Stats) */}
-            <div className="grid grid-cols-2 gap-8 pt-8">
-              {/* Stat 1 */}
-              <div className="flex items-center gap-4">
-                <span className="text-5xl md:text-6xl font-serif text-[#1a2b3c]">3+</span>
-                <p className="text-sm text-gray-500 leading-tight">
-                  Years of <br /> Experience in Web <br /> development
-                </p>
-              </div>
-              {/* Stat 2 */}
-              <div className="flex items-center gap-4">
-                <span className="text-5xl md:text-6xl font-serif text-[#1a2b3c]">20+</span>
-                <p className="text-sm text-gray-500 leading-tight">
-                  Projects <br /> Worked in my <br /> career
-                </p>
-              </div>
-            </div>
-
-          </div>
-
-          {/* --- ฝั่งขวา: รูปคน (Right Content) --- */}
-          <div className="w-full md:w-1/2 relative h-[500px] md:h-[800px] flex items-end justify-center md:justify-end">
-            
-            {/* รูปคน (ต้องใช้ไฟล์ PNG พื้นใส) */}
-            {/* เปลี่ยน src เป็น path รูปของคุณ เช่น "/images/my-photo.png" */}
-            {/*<div className="relative w-[300px] h-[400px] md:w-[450px] md:h-[600px] z-10 bottom-0">
-               {/* ใส่รูป Placeholder ไปก่อน
-
-              <Image 
-                src="https://placehold.co/450x600/png?text=Your+Photo" 
-                alt="Profile"
-                fill
-                className="object-contain object-bottom drop-shadow-xl"
+          {/* ref={formRef} และ onSubmit={sendEmail} คือส่วนสำคัญ */}
+          <form ref={formRef} onSubmit={sendEmail} className="space-y-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {/* First Name */}
+              <input
+                type="text"
+                name="firstname"
+                placeholder="Firstname"
+                className="w-full bg-[#1c1c22] text-white border border-gray-700 rounded-md px-4 py-3 outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400 transition"
               />
-            </div>*/}
-
-            {/* ชื่อแนวตั้ง (Vertical Name) */}
-            <div className="hidden md:block absolute right-[-80px] top-1/2 transform -translate-y-1/2 rotate-90 origin-center z-20">
-              <h2 className="text-6xl font-bold tracking-widest text-[#2c4a6b] uppercase opacity-90">
-                SUPACHAI WIJAIYA
-              </h2>
+              {/* Last Name */}
+              <input
+                type="text"
+                name="lastname"
+                placeholder="Lastname"
+                className="w-full bg-[#1c1c22] text-white border border-gray-700 rounded-md px-4 py-3 outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400 transition"
+              />
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {/* Email */}
+              <input
+                type="email"
+                name="email"
+                required
+                placeholder="Email address"
+                className="w-full bg-[#1c1c22] text-white border border-gray-700 rounded-md px-4 py-3 outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400 transition"
+              />
+              {/* Phone */}
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Phone number"
+                className="w-full bg-[#1c1c22] text-white border border-gray-700 rounded-md px-4 py-3 outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400 transition"
+              />
             </div>
 
-          </div>
+            {/* Message Textarea */}
+            <textarea
+              placeholder="Type your message here."
+              name="message"
+              className="w-full bg-[#1c1c22] text-white border border-gray-700 rounded-md px-4 py-3 outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400 transition resize-none"
+            ></textarea>
 
+            <input
+              type="text"
+              name="company"
+              style={{ display: "none" }}
+              autoComplete="off"
+            />
+
+            {/* Submit Button */}
+            <button
+              type="submit"
+              disabled={isLoading} // ป้องกันการกดซ้ำขณะส่ง
+              className={`font-semibold py-3 px-8 rounded-full transition duration-300 ${isLoading
+                ? "bg-gray-500 cursor-not-allowed text-white"
+                : "bg-emerald-400 hover:bg-emerald-500 text-black"
+                }`}
+            >
+              Send message
+            </button>
+
+            {statusMessage === 'success' && <p className="text-emerald-400 mt-2">Message sent successfully!</p>}
+            {statusMessage === 'error' && <p className="text-red-500 mt-2">Failed to send message.</p>}
+
+          </form>
+        </div>
+        <div className="flex flex-col justify-center space-y-8 order-1 md:order-2 pl-0 md:pl-10 text-white">
+          {/* Phone Item */}
+          <div className="flex items-center gap-6">
+            <div className="w-16 h-16 bg-[#27272c] rounded-md flex items-center justify-center text-emerald-400 shrink-0">
+              {/* Icon Phone */}
+              <Phone size={30} />
+            </div>
+            <div>
+              <p className="text-gray-400 text-sm">Phone</p>
+              <p className="text-xl font-medium">(+66) 864 372 503</p>
+            </div>
+          </div>
+          {/* Email Item */}
+          <div className="flex items-center gap-6">
+            <div className="w-16 h-16 bg-[#27272c] rounded-md flex items-center justify-center text-emerald-400 shrink-0">
+              {/* Icon Mail */}
+              < Mail size={30} />
+            </div>
+            <div>
+              <p className="text-gray-400 text-sm">Email</p>
+              <p className="text-xl font-medium">supachaiwijaiya@gmail.com</p>
+            </div>
+          </div>
+          {/* Address Item */}
+          <div className="flex items-center gap-6">
+            <div className="w-16 h-16 bg-[#27272c] rounded-md flex items-center justify-center text-emerald-400 shrink-0">
+              {/* Icon Location */}
+              <MapPin size={30} />
+            </div>
+            <div>
+              <p className="text-gray-400 text-sm">Address</p>
+              <p className="text-xl font-medium">Bang Kapi, Bangkok 10240</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   );
-};
-
-export default HeroSection;
+}    
