@@ -63,7 +63,7 @@ const ProjectShowcase = () => {
     //bg-[#161618]
     
     return (
-        <div className=" p-8 rounded-2xl"> 
+        <div className="p-8 rounded-2xl"> 
             <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 {/* --- Left Content Section --- */}
                 <div className="space-y-6 animate-in fade-in duration-500" key={currentProject.id}> {/* key ช่วยให้เกิด Animation เมื่อเปลี่ยนข้อมูล */}
