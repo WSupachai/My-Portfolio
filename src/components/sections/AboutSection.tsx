@@ -2,6 +2,21 @@ import { Download, Github, Linkedin, Youtube, Briefcase, GraduationCap } from 'l
 import Image from 'next/image';
 import MyJourney from '@/src/components/sections/MyJourney';
 
+const socials = [
+    {
+        icon: Github,
+        path: "https://github.com/WSupachai"
+    },
+    {
+        icon: Linkedin,
+        path: "https://github.com/WSupachai"
+    },
+    {
+        icon: Youtube,
+        path: "https://github.com/WSupachai"
+    },
+];
+
 export default function AboutMeSection() {
     return (
         <section className={` h-full w-full  bg-[#080808] text-white py-12 xl:py-24`}>
@@ -51,9 +66,14 @@ export default function AboutMeSection() {
                             </button>
 
                             <div className="flex gap-4">
-                                {[Github, Linkedin, Youtube].map((Icon, index) => (
-                                    <a key={index} href="#" className="w-10 h-10 border border-[#00ff99] rounded-full flex justify-center items-center text-[#00ff99] hover:bg-[#00ff99] hover:text-black transition-all duration-300">
-                                        <Icon size={18} />
+                                {socials.map((item, index) => (
+                                    <a
+                                        key={index} 
+                                        href={item.path}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="w-10 h-10 border border-[#00ff99] rounded-full flex justify-center items-center text-[#00ff99] hover:bg-[#00ff99] hover:text-black transition-all duration-300">
+                                        <item.icon size={18} />
                                     </a>
                                 ))}
                             </div>

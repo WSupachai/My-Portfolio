@@ -86,7 +86,7 @@ export default function ContactSection() {
                 type="email"
                 name="email"
                 required
-                placeholder="ํYour email address"
+                placeholder="Your email address"
                 className="w-full bg-[#1c1c22] text-white border border-gray-700 rounded-md px-4 py-3 outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400 transition"
               />
               {/* Phone */}
