@@ -24,3 +24,23 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@layer utilities {
+  /* คำนวณเส้นรอบวง: 2 * pi * r (250) ≈ 1571 */
+  /* เราจะให้มันวิ่งจนครบรอบ เพื่อให้ลูปเนียนกริบ */
+  @keyframes dash-flow {
+    from {
+      stroke-dashoffset: 1571;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  .animate-dash-flow {
+    /* เล่น animation dash-flow นาน 20 วินาที, แบบเส้นตรง, วนตลอดไป */
+    animation: dash-flow 20s linear infinite;
+    /* คงการหมุนแบบเดิมไว้ด้วย (ถ้าต้องการ) หรือเอาออกก็ได้ */
+    /* animation: spin-slow 10s linear infinite, dash-flow 20s linear infinite; */
+  }
+}

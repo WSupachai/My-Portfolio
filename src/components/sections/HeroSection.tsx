@@ -9,6 +9,7 @@ const inter = Inter({ subsets: ['latin'] });
 // กำหนดสีหลัก
 const themeColor = '#00ff99';
 
+
 export default function HeroSectionCyber() {
   return (
     <div className={`min-h-screen w-full flex flex-col md:flex-row bg-[#030303] text-white ${inter.className} overflow-hidden relative`}>
@@ -48,8 +49,7 @@ export default function HeroSectionCyber() {
             </h1>
 
             <p className="text-gray-400 text-lg md:text-xl max-w-md mb-10 font-light">
-              I craft high-performance websites with stunning designs. 
-              Let's turn your vision into a digital reality.
+              A web developer focused on performance and aesthetics. Constantly learning new technologies to deliver high-quality solutions that meet user needs.
             </p>
 
             {/* Stats - Modern Layout */}
@@ -73,7 +73,7 @@ export default function HeroSectionCyber() {
       </div>
 
       {/* --- RIGHT SIDE: Image Composition --- */}
-      <div className="w-full md:w-[45%] relative min-h-[500px] md:min-h-auto flex items-end justify-center md:justify-end overflow-visible">
+      <div className="hidden md:block  w-full md:w-[45%] relative min-h-[500px] md:min-h-auto flex items-end justify-center md:justify-end overflow-visible">
         
         {/* ชื่อด้านหลัง (Background Text) */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:translate-x-0 md:left-auto md:right-10 z-0 select-none">
@@ -86,19 +86,18 @@ export default function HeroSectionCyber() {
         {/* แสง Neon วงกลมหลังรูป 
         <div className="absolute bottom-0 right-0 md:right-20 w-[400px] h-[400px] bg-[#00ff99] rounded-full blur-[100px] opacity-20 animate-pulse"></div>
         */}
-        
-        
+         
         {/* กรอบสี่เหลี่ยมตกแต่ง (Cyber Frame) */}
         <div className="absolute top-20 right-10 w-20 h-20 border-t-2 border-r-2 border-[#00ff99] opacity-50"></div>
         <div className="absolute bottom-20 left-10 w-20 h-20 border-b-2 border-l-2 border-[#00ff99] opacity-50"></div>
 
-        {/* รูปภาพ */}
+        {/* Image */}
         <div className="relative z-10 w-full h-[90%] md:h-[90%] max-w-[600px] md:mr-[-50px]">
            {/* Gradient Fade ด้านล่างเพื่อให้รูปกลืนไปกับพื้นหลัง */}
            <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#030303] to-transparent z-20"></div>
            
            <Image 
-                src="/MARKER1.png" // *** ใส่รูปของคุณตรงนี้ ***
+                src="/MARKER1.png" 
                 alt="Profile"
                 fill
                 className="object-contain object-bottom drop-shadow-[0_0_20px_rgba(0,255,153,0.15)] grayscale-[20%] contrast-110 hover:grayscale-0 transition-all duration-500"

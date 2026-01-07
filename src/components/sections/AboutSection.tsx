@@ -4,12 +4,12 @@ import MyJourney from '@/src/components/sections/MyJourney';
 
 export default function AboutMeSection() {
     return (
-        <section className="h-full w-full bg-[#111111] text-white py-12 xl:py-24">
+        <section className={` h-full w-full  bg-[#080808] text-white py-12 xl:py-24`}>
             <div className="container mx-auto px-4">
                 <div className="flex flex-col xl:flex-row items-center justify-between gap-10">
                     <div className="xl:w-1/2 flex justify-center xl:justify-center relative">
                         <div className="w-[300px] h-[300px] xl:w-[400px] xl:h-[400px] relative">
-                            <svg className="w-full h-full absolute top-0 left-0 z-0" viewBox="0 0 506 506" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg className="w-full h-full absolute top-0 left-0 z-0 pointer-events-none" viewBox="0 0 506 506" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <circle
                                     cx="253"
                                     cy="253"
@@ -18,19 +18,20 @@ export default function AboutMeSection() {
                                     strokeWidth="4"
                                     strokeLinecap="round"
                                     strokeLinejoin="round"
-                                    strokeDasharray="20 40" /* ปรับระยะห่างของเส้นประตรงนี้ */
-                                    className="animate-spin-slow" /* ใส่ animation หมุนถ้าต้องการ */
+                                    // ปรับ เช่น "10 20" เส้นจะถี่ขึ้น "50 50" เส้นจะห่าง
+                                    strokeDasharray="20 40"
+                                    className="animate-dash-flow origin-center"
                                 />
                             </svg>
-                            {/*
-                            <div className="w-full h-full rounded-full overflow-hidden absolute top-0 left-0 z-10 mix-blend-lighten bg-neutral-800">
+
+                            <div className="w-full h-full rounded-full overflow-hidden absolute top-0 left-0 z-10 mix-blend-lighten ">  {/* bg-neutral-800 */}
                                 <Image
-                                    src="/api/placeholder/400/400"
+                                    src="/MARKER1.png"
                                     alt="Profile"
                                     fill
                                     className="object-cover"
                                 />
-                            </div>*/}
+                            </div>
                         </div>
                     </div>
                     <div className="text-center xl:text-left xl:w-1/2">
@@ -40,7 +41,7 @@ export default function AboutMeSection() {
                             <span className="text-[#00ff99]">Supachai Wijaiya</span>
                         </h1>
                         <p className="max-w-[500px] mb-9 text-white/80 mx-auto xl:mx-0">
-                            I excel at crafting elegant digital experiences and I am proficient in various programming languages and technologies.
+                            I am a full-stack developer who enjoys learning new technologies and building practical web applications.
                         </p>
 
                         <div className="flex flex-col xl:flex-row items-center gap-8">

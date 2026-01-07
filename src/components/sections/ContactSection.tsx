@@ -51,13 +51,15 @@ export default function ContactSection() {
     }
   }
 
+  //1c1c22
+
   return (
-    <section className="bg-[#1c1c22] min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <section className={`bg-[#030303] min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8`}>
       <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-10">
         <div className="bg-[#27272c] p-8 rounded-xl shadow-lg order-2 md:order-1">
           <h3 className="text-4xl font-bold text-emerald-400 mb-6">Let's work together</h3>
           <p className="text-gray-400 mb-8 text-sm">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt sit illo esse commodi.
+            If you are interested in working together, please send me a message.
           </p>
 
           {/* ref={formRef} และ onSubmit={sendEmail} คือส่วนสำคัญ */}
@@ -84,7 +86,7 @@ export default function ContactSection() {
                 type="email"
                 name="email"
                 required
-                placeholder="Email address"
+                placeholder="ํYour email address"
                 className="w-full bg-[#1c1c22] text-white border border-gray-700 rounded-md px-4 py-3 outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400 transition"
               />
               {/* Phone */}
@@ -114,7 +116,9 @@ export default function ContactSection() {
             <button
               type="submit"
               disabled={isLoading} // ป้องกันการกดซ้ำขณะส่ง
-              className={`font-semibold py-3 px-8 rounded-full transition duration-300 ${isLoading
+              className={`font-semibold py-3 px-8 rounded-full transition duration-300 
+                active:scale-95
+                ${isLoading
                 ? "bg-gray-500 cursor-not-allowed text-white"
                 : "bg-emerald-400 hover:bg-emerald-500 text-black"
                 }`}

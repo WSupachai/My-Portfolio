@@ -4,7 +4,12 @@ import SkillsSection from "@/src/components/sections/SkillsSection"
 import ProjectSection from "@/src/components/sections/ProjectSection"
 import ContactSection from "@/src/components/sections/ContactSection"
 
+import { Inter } from "next/font/google";
 
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["300", "400", "600", "700"],
+});
 
 export default function Home() {
   return (
@@ -13,19 +18,19 @@ export default function Home() {
         <HeroSection />
       </section>
 
-      <section id="about">
+      <section id="about" className={`${inter.className}`}>
         <AboutSection />
       </section>
 
-      <section id="skills">
+      <section id="skills" className={`${inter.className}`}>
         <SkillsSection />
       </section>
 
-      <section id="projects">
+      <section id="projects" className={`${inter.className}`}>
         <ProjectSection />
       </section>
 
-      <section id="contact">
+      <section id="contact" className={`${inter.className}`}>
         <ContactSection />
       </section>
     </main>

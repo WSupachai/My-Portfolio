@@ -9,13 +9,13 @@ const MyJourney = () => {
             year: "2023-Present",
             role: "Programmer",
             institution: "Better World Green Public Company Limited",
-            desc: "Developing scalable web applications using Next.js and Supabase."
+            desc: "VB.NET and C# Developer building web applications with .NET MVC."
         },
         {
             year: "2023",
             role: "Web Developer",
             institution: "NEXILAR CO., LTD",
-            desc: "Developing scalable web applications using Next.js and Supabase."
+            desc: "Frontend Developer building web applications with Next.js."
         }
     ]
 
@@ -24,7 +24,7 @@ const MyJourney = () => {
             year: "2019 - 2022",
             role: "B.Eng. (Computer Engineering)",
             institution: "University of Phayao",
-            desc: "Major in Computer Engineering, GPA 3.5"
+            desc: "Major in Computer Engineering"
         }
     ]
 
