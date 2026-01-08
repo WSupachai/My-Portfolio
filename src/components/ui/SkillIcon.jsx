@@ -96,7 +96,7 @@ export default function SkillIcon({ name, className }) {
   };
 
   // 2. แปลงชื่อที่รับมาเป็นตัวพิมพ์เล็ก เพื่อให้ตรงกับ key ข้างบน
-  const normalizedName = name?.toLowerCase().trim();
+  const normalizedName = name?.toLowerCase().replace(/\s/g, "") || "";
 
   // 3. เลือกไอคอน ถ้าไม่มีให้ใช้ FaCode (รูป < />) แทน
   const IconComponent = iconMap[normalizedName] || FaCode;
