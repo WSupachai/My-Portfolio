@@ -1,15 +1,22 @@
 import {
   // Languages
-  SiHtml5, SiCss3, SiJavascript, SiTypescript, SiPython, SiCsharp, SiJava, SiPhp, SiGo, SiRust, SiSwift, SiKotlin, SiRuby,
+  SiHtml5, SiCss3, SiJavascript, SiTypescript, SiPython, SiPhp, SiGo, SiRust, SiSwift, SiKotlin, SiRuby,
+  
   // Frontend
-  SiReact, SiNextdotjs, SiVue, SiAngular, SiSvelte, SiTailwindcss, SiBootstrap, SiSass, SiJquery, SiMui, SiVite,
+  SiReact, SiNextdotjs, SiVuedotjs, SiAngular, SiSvelte, SiTailwindcss, SiBootstrap, SiSass, SiJquery, SiMui, SiVite,
+  // Note: SiVue -> แก้เป็น SiVuedotjs
+
   // Backend & Runtime
   SiNodedotjs, SiExpress, SiNestjs, SiDjango, SiFlask, SiSpring, SiLaravel, SiDotnet,
+  
   // Database
-  SiPostgresql, SiMysql, SiMongodb, SiRedis, SiSqlite, SiFirebase, SiSupabase, SiPrisma, SiMicrosoftsqlserver,
+  SiPostgresql, SiMysql, SiMongodb, SiRedis, SiSqlite, SiFirebase, SiSupabase, SiPrisma,
+  
   // Tools & DevOps
-  SiGit, SiGithub, SiGitlab, SiDocker, SiKubernetes, SiNginx, SiLinux, SiAmazonaws, SiGooglecloud, SiMicrosoftazure, SiVercel, SiNetlify, SiPostman, SiFigma, SiAdobephotoshop, SiAdobeillustrator
+  SiGit, SiGithub, SiGitlab, SiDocker, SiKubernetes, SiNginx, SiLinux, SiGooglecloud, SiVercel, SiNetlify, SiPostman, SiFigma, SiAdobephotoshop, SiAdobeillustrator
+  // Note: SiAws -> แก้เป็น SiAmazonaws
 } from "react-icons/si";
+
 import { FaCode } from "react-icons/fa"; // ไอคอนกันเหนียว (Default)
 
 export default function SkillIcon({ name, className }) {
@@ -24,9 +31,6 @@ export default function SkillIcon({ name, className }) {
     typescript: SiTypescript,
     ts: SiTypescript,
     python: SiPython,
-    java: SiJava,
-    csharp: SiCsharp,
-    "c#": SiCsharp, // กรณี key เป็น c#
     php: SiPhp,
     go: SiGo,
     rust: SiRust,
@@ -38,7 +42,6 @@ export default function SkillIcon({ name, className }) {
     react: SiReact,
     "next.js": SiNextdotjs,
     nextjs: SiNextdotjs,
-    vue: SiVue,
     angular: SiAngular,
     svelte: SiSvelte,
     tailwind: SiTailwindcss,
@@ -72,9 +75,6 @@ export default function SkillIcon({ name, className }) {
     firebase: SiFirebase,
     supabase: SiSupabase,
     prisma: SiPrisma,
-    mssql: SiMicrosoftsqlserver,
-    sqlserver: SiMicrosoftsqlserver,
-
     // --- Tools & Cloud ---
     git: SiGit,
     github: SiGithub,
@@ -84,9 +84,7 @@ export default function SkillIcon({ name, className }) {
     k8s: SiKubernetes,
     linux: SiLinux,
     nginx: SiNginx,
-    aws: SiAmazonaws,
     gcp: SiGooglecloud,
-    azure: SiMicrosoftazure,
     vercel: SiVercel,
     netlify: SiNetlify,
     postman: SiPostman,
