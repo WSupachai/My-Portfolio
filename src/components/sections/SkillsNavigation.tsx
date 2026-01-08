@@ -82,24 +82,38 @@ const SkillsByCategory = () => {
                                 skills.map((skill) => (
                                     <div
                                         key={skill.id}
-                                        className="group relative bg-[#1c1c22] p-6 rounded-2xl border border-gray-800 hover:border-[#00ff99] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_4px_20px_-10px_rgba(0,255,153,0.3)]"
+                                        // เพิ่ม cursor-pointer เพื่อให้ในมือถือรู้ว่ากดได้
+                                        className="group relative cursor-pointer bg-[#1c1c22] p-6 rounded-2xl border border-gray-800 hover:border-[#00ff99] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_4px_20px_-10px_rgba(0,255,153,0.3)]"
                                     >
-                                        <div className="flex justify-between items-start">
-                                            <div className="flex flex-col gap-2">
-                                                <h4 className="font-bold text-xl text-white group-hover:text-[#00ff99] transition-colors duration-300">
+                                        <div className="flex justify-center md:justify-between items-center md:items-start gap-4">
+
+                                            {/* 1. Desktop Layout: แสดงข้อความปกติเมื่อจอใหญ่ (เหมือนเดิม) */}
+                                            <div className="hidden md:flex flex-col gap-2 flex-1 min-w-0">
+                                                <h4 className="font-bold text-xl text-white group-hover:text-[#00ff99] transition-colors duration-300 truncate">
                                                     {skill.name}
                                                 </h4>
                                                 <span className="text-xs text-gray-500">
                                                     {skill.category}
                                                 </span>
                                             </div>
-                                            <div className="p-3 rounded-xl group-hover:bg-[#00ff99]/10 gittransition-colors duration-300">
+
+                                            {/* 2. Icon: (เหมือนเดิม) */}
+                                            <div className="shrink-0 p-3 rounded-xl group-hover:bg-[#00ff99]/10 transition-colors duration-300">
                                                 <SkillIcon
                                                     name={skill.name}
-                                                    className="text-4xl text-gray-500 group-hover:text-[#00ff99] transition-colors duration-300"
+                                                    className="text-4xl text-gray-500 group-hover:text-[#00ff99] transition-colors duration-300 block"
                                                 />
                                             </div>
+
                                         </div>
+
+                                        {/* 3. Mobile Tooltip (New!): แสดงเฉพาะจอเล็ก (md:hidden) เมื่อ Hover/Click */}
+                                        <div className="md:hidden absolute inset-x-0 bottom-2 flex justify-center opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
+                                            <span className="bg-black/80 backdrop-blur-md text-[#00ff99] text-xs font-bold px-3 py-1 rounded-full shadow-lg border border-[#00ff99]/20">
+                                                {skill.name}
+                                            </span>
+                                        </div>
+
                                     </div>
                                 ))
                             )}
@@ -119,7 +133,7 @@ interface NavButtonProps {
     icon: React.ReactNode;    // Type นี้ครอบคลุมทั้ง Icon Component, SVG, หรือแม้แต่ <span>
 }
 
-const NavButton = ({ active, onClick, label, icon}: NavButtonProps) => (
+const NavButton = ({ active, onClick, label, icon }: NavButtonProps) => (
     <button
         onClick={onClick}
         className={`w-full text-left px-6 py-4 rounded-xl flex items-center gap-4 transition-all duration-300 

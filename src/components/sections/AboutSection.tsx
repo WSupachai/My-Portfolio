@@ -9,11 +9,11 @@ const socials = [
     },
     {
         icon: Linkedin,
-        path: "https://github.com/WSupachai"
+        path: "https://www.linkedin.com/in/supachai-wijaiya-b7a236276?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
     },
     {
         icon: Youtube,
-        path: "https://github.com/WSupachai"
+        path: "https://www.youtube.com/@supachai.w"
     },
 ];
 
