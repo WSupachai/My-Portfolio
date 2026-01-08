@@ -1,22 +1,18 @@
 import {
   // Languages
   SiHtml5, SiCss3, SiJavascript, SiTypescript, SiPython, SiPhp, SiGo, SiRust, SiSwift, SiKotlin, SiRuby,
-  
   // Frontend
   SiReact, SiNextdotjs, SiVuedotjs, SiAngular, SiSvelte, SiTailwindcss, SiBootstrap, SiSass, SiJquery, SiMui, SiVite,
-  // Note: SiVue -> แก้เป็น SiVuedotjs
-
   // Backend & Runtime
   SiNodedotjs, SiExpress, SiNestjs, SiDjango, SiFlask, SiSpring, SiLaravel, SiDotnet,
-  
   // Database
-  SiPostgresql, SiMysql, SiMongodb, SiRedis, SiSqlite, SiFirebase, SiSupabase, SiPrisma,
-  
+  SiPostgresql, SiMysql, SiMongodb, SiRedis, SiSqlite, SiFirebase, SiSupabase, SiPrisma, 
   // Tools & DevOps
   SiGit, SiGithub, SiGitlab, SiDocker, SiKubernetes, SiNginx, SiLinux, SiGooglecloud, SiVercel, SiNetlify, SiPostman, SiFigma, SiAdobephotoshop, SiAdobeillustrator
   // Note: SiAws -> แก้เป็น SiAmazonaws
 } from "react-icons/si";
-
+import { TbBrandCSharp } from "react-icons/tb";
+import { DiMsqlServer,DiVisualstudio } from "react-icons/di";
 import { FaCode } from "react-icons/fa"; // ไอคอนกันเหนียว (Default)
 
 export default function SkillIcon({ name, className }) {
@@ -37,6 +33,7 @@ export default function SkillIcon({ name, className }) {
     swift: SiSwift,
     kotlin: SiKotlin,
     ruby: SiRuby,
+    "c#": TbBrandCSharp,
 
     // --- Frontend ---
     react: SiReact,
@@ -63,6 +60,7 @@ export default function SkillIcon({ name, className }) {
     laravel: SiLaravel,
     dotnet: SiDotnet,
     ".net": SiDotnet,
+    "vb.net":DiVisualstudio,
 
     // --- Database ---
     postgres: SiPostgresql,
@@ -75,6 +73,7 @@ export default function SkillIcon({ name, className }) {
     firebase: SiFirebase,
     supabase: SiSupabase,
     prisma: SiPrisma,
+    mssql: DiMsqlServer,
     // --- Tools & Cloud ---
     git: SiGit,
     github: SiGithub,
