@@ -41,7 +41,7 @@ export default function AboutMeSection() {
 
                             <div className="w-full h-full rounded-full overflow-hidden absolute top-0 left-0 z-10 mix-blend-lighten ">  {/* bg-neutral-800 */}
                                 <Image
-                                    src="/MARKER1.png"
+                                    src="/MARKER.png"
                                     alt="Profile"
                                     fill
                                     className="object-cover"
@@ -60,15 +60,20 @@ export default function AboutMeSection() {
                         </p>
 
                         <div className="flex flex-col xl:flex-row items-center gap-8">
-                            <button className="uppercase flex items-center gap-2 border border-[#00ff99] text-[#00ff99] hover:bg-[#00ff99] hover:text-black transition-all duration-300 px-6 py-3 rounded-full tracking-wider font-semibold">
+                            <a className="uppercase flex items-center gap-2 border border-[#00ff99] text-[#00ff99] hover:bg-[#00ff99] hover:text-black transition-all duration-300 px-6 py-3 rounded-full tracking-wider font-semibold"
+                                href="/resume.pdf" // path นี้จะอ้างอิงจาก folder public โดยตรง
+                                download="My_Name_Resume.pdf" // ชื่อไฟล์ที่จะถูกเซฟลงเครื่องผู้ใช้ (ตั้งชื่อใหม่ได้ตรงนี้)
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
                                 <span>Download CV</span>
                                 <Download size={18} />
-                            </button>
+                            </a>
 
                             <div className="flex gap-4">
                                 {socials.map((item, index) => (
                                     <a
-                                        key={index} 
+                                        key={index}
                                         href={item.path}
                                         target="_blank"
                                         rel="noopener noreferrer"

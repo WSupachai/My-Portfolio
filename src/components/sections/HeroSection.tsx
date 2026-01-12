@@ -93,16 +93,20 @@ export default function HeroSectionCyber() {
 
         {/* Image */}
         <div className="relative z-10 w-full h-[90%] md:h-[90%] max-w-[600px] md:mr-[-50px]">
-           {/* Gradient Fade ด้านล่างเพื่อให้รูปกลืนไปกับพื้นหลัง */}
-           <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#030303] to-transparent z-20"></div>
+
+           {/* Gradient Fade ด้านล่างเพื่อให้รูปกลืนไปกับพื้นหลัง 
+            <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-[#030303] to-transparent z-20 "></div>
+           */}  
            
            <Image 
-                src="/MARKER1.png" 
+                src="/MARKHEROs.png" 
                 alt="Profile"
                 fill
-                className="object-contain object-bottom drop-shadow-[0_0_20px_rgba(0,255,153,0.15)] grayscale-[20%] contrast-110 hover:grayscale-0 transition-all duration-500"
+                className="object-contain object-bottom drop-shadow-[0_0_20px_rgba(0,255,153,0.15)] grayscale-[20%] contrast-110 hover:grayscale-0 transition-all duration-500
+                 [mask-image:linear-gradient(to_top,transparent_0%,black_20%)] "
                 priority
             />
+          
         </div>
 
       </div>
