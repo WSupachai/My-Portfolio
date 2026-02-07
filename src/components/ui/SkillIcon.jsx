@@ -13,6 +13,7 @@ import {
 } from "react-icons/si";
 import { TbBrandCSharp } from "react-icons/tb";
 import { DiMsqlServer,DiVisualstudio } from "react-icons/di";
+import { BiLogoVuejs } from "react-icons/bi";
 import { FaCode } from "react-icons/fa"; // ไอคอนกันเหนียว (Default)
 
 export default function SkillIcon({ name, className }) {
@@ -46,6 +47,7 @@ export default function SkillIcon({ name, className }) {
     sass: SiSass,
     mui: SiMui,
     vite: SiVite,
+    vuejs: BiLogoVuejs,
 
     // --- Backend ---
     node: SiNodedotjs,
