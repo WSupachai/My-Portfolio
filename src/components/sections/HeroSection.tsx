@@ -62,8 +62,8 @@ export default function HeroSectionCyber() {
               </div>
                
               <div>
-                <h3 className={`${outfit.className} text-5xl font-bold text-white mb-1`}>
-                  25
+                <h3 className={`${outfit.className} text-5xl font-bold text-white mb-1`}>          
+                  {calculateAge('2000-03-05') }
                 </h3>
                 <p className="text-sm text-gray-500 uppercase tracking-wider">Age</p>
               </div>
@@ -112,4 +112,19 @@ export default function HeroSectionCyber() {
       </div>
     </div>
   );
+}
+
+function calculateAge(birthDateInput: Date | string): number {
+  const birthDate = new Date(birthDateInput);
+  const today = new Date();
+
+  let age = today.getFullYear() - birthDate.getFullYear();
+
+  const monthDiff = today.getMonth() - birthDate.getMonth();
+
+  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
+  }
+
+  return age;
 }
