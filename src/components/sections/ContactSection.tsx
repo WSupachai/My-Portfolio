@@ -140,7 +140,7 @@ export default function ContactSection() {
             </div>
             <div>
               <p className="text-gray-400 text-sm">Phone</p>
-              <p className="text-xl font-medium">(+66) 864 372 503</p>
+              <p className="text-xl font-medium">(+66) 972 403 847</p>
             </div>
           </div>
           {/* Email Item */}
@@ -162,7 +162,7 @@ export default function ContactSection() {
             </div>
             <div>
               <p className="text-gray-400 text-sm">Address</p>
-              <p className="text-xl font-medium">Bang Kapi, Bangkok 10240</p>
+              <p className="text-xl font-medium">Mueang Samut Prakan, Samut Prakan 10280</p>
             </div>
           </div>
         </div>
