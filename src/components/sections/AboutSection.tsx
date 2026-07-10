@@ -62,7 +62,7 @@ export default function AboutMeSection() {
                         <div className="flex flex-col xl:flex-row items-center gap-8">
                             <a className="uppercase flex items-center gap-2 border border-[#00ff99] text-[#00ff99] hover:bg-[#00ff99] hover:text-black transition-all duration-300 px-6 py-3 rounded-full tracking-wider font-semibold"
                                 href="/Resume.pdf" // path นี้จะอ้างอิงจาก folder public โดยตรง
-                                download="Supachai_Resume.pdf" 
+                                download="Supachai_Wijaiya_FlowCV_Resume.pdf" 
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
