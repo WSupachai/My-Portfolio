@@ -65,7 +65,7 @@ export default function AboutMeSection() {
                                 download="Supachai_Wijaiya_FlowCV_Resume.pdf" 
                                 target="_blank"
                                 rel="noopener noreferrer"
-                            >
+                            >git
                                 <span>Download CV</span>
                                 <Download size={18} />
                             </a>
